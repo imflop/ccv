@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "ccv"
+version = "1.0.0"
+description = "Ctrl(Command)+C Ctrl(Command)+V"
+authors = ["Oleg Makarov <imflop@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.103.2"
+uvicorn = {extras = ["standard"], version = "^0.23.2"}
+pydantic-settings = "^2.0.3"
+toml = "^0.10.2"
+types-toml = "^0.10.8.7"
+jinja2 = "^3.1.2"
+orjson = "^3.9.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

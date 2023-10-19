@@ -1,0 +1,39 @@
+{% extends "/shared/_base.html" %}
+
+{% block content %}
+<div class="col-12">
+    <div class="row">
+        <div class="col-10">
+            <div class="form-floating">
+                <input type="text"
+                       id="floatingInput"
+                       class="form-control form-control-lg"
+                       placeholder="⌘ + v"
+                       aria-label="⌘ + v"
+                />
+                <label for="floatingInput">⌘ + v</label>
+            </div>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-dark btn-lg h-100"
+                    hx-post="/api/v1/shorten"
+                    hx-target="#blogs-template"
+                    nunjucks-template="blogs-template">
+                Shorten
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div id="cccvHelp" class="form-text">
+            Simply copy the link you want to shorten from the clipboard or type it into the input.
+        </div>
+    </div>
+    <div class="row" hx-ext="client-side-templates">
+        <div class="col-10" id="blogs-template">
+            {% raw %}
+            {{ short_url|safe }}
+            {% endraw %}
+        </div>
+    </div>
+</div>
+{% endblock %}
